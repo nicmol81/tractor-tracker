@@ -638,7 +638,9 @@ def handle_command(cmd, args, chat_id, bot, cfg, recording, gps_alert, motion_st
             "/set_autostart_interval <secunde> — cât de des verifică accelerometrul cât timp înregistrarea e oprită\n"
             "/set_autostart_window <n> — câte verificări intră în fereastra de pornire automată\n"
             "/set_autostart_ratio <0-1> — ce procent din fereastră trebuie să arate mișcare (ex. 0.6)\n"
-            "/login <parola> — autorizează acest chat să folosească botul",
+            "/login <parola> — autorizează acest chat să folosească botul\n"
+            "Într-un grup cu mai multe tractoare, adaugă @numele_botului la comandă "
+            "(ex. /update@Tractor1_bot) ca să știe care tractor o primește.",
             chat_id=chat_id,
         )
         return recording

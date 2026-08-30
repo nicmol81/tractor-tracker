@@ -81,5 +81,12 @@ class TelegramBot:
             if chat_id is None or not text.startswith("/"):
                 continue
             parts = text.strip().split()
-            commands.append((chat_id, parts[0].lower(), parts[1:]))
+            # Într-un grup cu mai multe boturi (câte unul per tractor),
+            # Telegram livrează o comandă "/cmd@NumeBot" DOAR botului vizat --
+            # celelalte nici n-o primesc prin getUpdates. Trebuie doar să
+            # tăiem sufixul "@NumeBot" ca să se potrivească cu "/cmd" de mai
+            # jos; nu mai verificăm noi cui îi era adresată, Telegram a
+            # făcut deja filtrarea aia (vezi conversația din 2026-08-06).
+            cmd = parts[0].lower().split("@", 1)[0]
+            commands.append((chat_id, cmd, parts[1:]))
         return commands

@@ -238,6 +238,19 @@ Din v1.25, dacă tracker-ul are un nume setat (`/rename`), **fiecare** mesaj tri
 
 Dacă ai mai multe telefoane/tractoare care rulează acest script în paralel, fiecare instanță poate avea un nume propriu, ca să știi din numele fișierului KMZ cărui utilaj îi aparține.
 
+### Mai multe tractoare într-un singur grup Telegram
+
+Fiecare tractor are **propriul bot** (propriul token de la BotFather, secțiunea 4) — asta rămâne neschimbat, indiferent unde vorbești cu el. Dacă vrei totuși toate mesajele/comenzile la un loc, poți crea un grup Telegram și adăuga toate boturile ca membri, în loc să ai câte un chat separat pentru fiecare.
+
+Important: într-un grup cu mai multe boturi, o comandă simplă (`/update`) e livrată **de Telegram** către toate boturile din grup deodată — nu doar către cel vizat. Ca să targetezi un singur tractor, adaugă `@numele_botului` la comandă, exact ca username-ul dat la crearea botului în BotFather:
+```
+/update@Tractor1_bot
+/rec_status@Tractor2_bot
+```
+Telegram livrează update-ul **doar** botului menționat — celelalte telefoane nici nu-l primesc, deci nu există risc ca un tractor să reacționeze la o comandă adresată altuia. Fără `@numele_botului`, tratează comanda ca adresată tuturor tractoarelor din grup deodată (util doar dacă chiar asta vrei, ex. un `/update` de grup pentru toată flota).
+
+Dacă preferi simplitatea și nu ai nevoie de o singură fereastră cu tot traficul, cea mai clară variantă rămâne un chat separat per tractor (fără grup) — acolo orice comandă merge automat doar la acel tractor, fără `@nume` niciodată.
+
 - `/name` — afișează numele curent al acestui tracker
 - `/rename <nume>` — setează/schimbă numele (poate conține spații, ex. `/rename Tractor Nord`), salvat în `runtime_config.json`
 
