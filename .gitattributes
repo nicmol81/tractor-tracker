@@ -1,0 +1,5 @@
+# Forțează LF peste tot, indiferent de platforma pe care se face commit-ul
+# (Windows aici, la dezvoltare) sau checkout (Termux/Linux pe telefoane).
+# Esențial pentru install/boot-start-tracker.sh -- un shebang cu \r la final
+# (CRLF) face scriptul de nerulat sub Termux:Boot.
+* text=auto eol=lf

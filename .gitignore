@@ -1,0 +1,17 @@
+# Secrete și configurare specifică fiecărui telefon -- niciodată în repo.
+config.json
+runtime_config.json
+
+# Generate la rulare, specifice fiecărui device.
+tractor_tracker.log*
+tractor_tracker.pid
+startup_errors.log
+boot-start-tracker.out
+
+# Python.
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Arhive de distribuție (nu mai sunt necesare odată cu update-ul prin git).
+*.zip
