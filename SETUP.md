@@ -84,7 +84,7 @@ Nu mai e nevoie de SSH pentru actualizări curente de cod. Trimite pur și simpl
 ```
 din Telegram — scriptul face `git pull` în folderul lui, și dacă a apărut cod nou, repornește singur procesul (fără să depindă de bucla de supervizare din secțiunea 15 — folosește `os.execv`, care înlocuiește procesul curent păstrându-i PID-ul). Confirmă apoi cu `/version` că a preluat versiunea nouă. Dacă apare vreo modificare de schemă (chei noi în `runtime_config.json`), acestea se adaugă automat la următoarea pornire, la fel ca înainte (secțiunea 7).
 
-Rămâne util să poți actualiza tot prin SSH+`scp` (ex. la instalare inițială fără cont GitHub, sau dacă telefonul e complet offline la internet dar ai acces local prin Wi-Fi la calculator) — vezi arhiva `.zip` livrată separat în acele cazuri.
+Metoda veche (`scp` + `.zip` prin SSH) rămâne o variantă de rezervă dacă telefonul nu are deloc acces la internet (doar Wi-Fi local spre calculator) — presupune doar copierea fișierelor `.py`/`.md` peste folderul existent, la fel ca înainte de v1.26.
 
 ### Migrarea unui telefon instalat cu metoda veche (.zip)
 
