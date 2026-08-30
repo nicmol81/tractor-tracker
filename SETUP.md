@@ -288,9 +288,11 @@ de exemplu `Tractor Nord 260804 oraSTART 08.30.15.kmz` — data și ora sunt **l
 
 ```bash
 mkdir -p ~/.termux/boot
-cp ~/tractor_tracker/install/boot-start-tracker.sh ~/.termux/boot/
-chmod +x ~/.termux/boot/boot-start-tracker.sh
+ln -s ~/tractor_tracker/install/boot-start-tracker.sh ~/.termux/boot/boot-start-tracker.sh
+chmod +x ~/tractor_tracker/install/boot-start-tracker.sh
 ```
+
+Folosim un **symlink**, nu o copie — dacă vreodată `boot-start-tracker.sh` se schimbă printr-un `/update` (git pull), varianta din `~/.termux/boot/` rămâne automat la zi, fără să trebuiască s-o recopiezi manual după fiecare actualizare.
 
 Repornește telefonul o dată ca test și confirmă (de exemplu prin `/status` din Telegram, sau verificând `~/tractor_tracker/tractor_tracker.log`) că scriptul a pornit singur.
 
