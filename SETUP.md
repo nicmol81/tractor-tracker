@@ -41,11 +41,27 @@ One UI are mai multe straturi de restricții de fundal peste Android standard, c
 ```bash
 termux-setup-storage
 pkg update && pkg upgrade -y
-pkg install python termux-api git -y
+pkg install python termux-api git openssh -y
 pip install requests
 ```
 
 `termux-setup-storage` cere o permisiune (aprobă) — creează folderul `~/storage/shared/` prin care scriptul scrie arhiva KMZ vizibilă din orice file manager.
+
+### Acces SSH de pe calculator (recomandat, ca să nu tastezi tot pe telefon)
+
+```bash
+passwd
+sshd
+whoami
+```
+`passwd` îți cere o parolă nouă (o folosești doar pentru SSH pe acest telefon). `sshd` pornește serverul SSH — Termux ascultă implicit pe **portul 8022**, nu 22. `whoami` îți arată user-ul (ceva de forma `u0_a3XX`, diferit pe fiecare telefon — vezi [[u0-a318-termux-user]] pentru ce înseamnă).
+
+De pe calculator, aflat pe același Wi-Fi (înlocuiește IP-ul și user-ul):
+```powershell
+ssh -p 8022 -o StrictHostKeyChecking=no u0_a3XX@192.168.0.XXX
+```
+
+`sshd` nu pornește automat la fiecare deschidere a Termux — dacă închizi aplicația complet (nu doar minimizată) și SSH-ul nu mai răspunde, deschide Termux pe telefon și rulează `sshd` din nou.
 
 ## 4. Creare bot Telegram (BotFather)
 
